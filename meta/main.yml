@@ -1,0 +1,35 @@
+galaxy_info:
+  author: Sergio R.
+  description: install docker from dockerproject.org repo
+  license: BSD
+  min_ansible_version: 2.0
+
+  platforms:
+  #- name: Ubuntu
+  #  versions:
+  #  - all
+  #  - lucid
+  #  - maverick
+  #  - natty
+  #  - oneiric
+  #  - precise
+  #  - quantal
+  #  - raring
+  #  - saucy
+  #  - trusty
+  #  - utopic
+  #  - vivid
+  - name: Debian
+    versions:
+  #  - all
+  #  - etch
+    - jessie
+  #  - lenny
+  #  - squeeze
+  #  - wheezy
+
+  galaxy_tags: [docker, dockerproject.org]
+
+dependencies: []
+#dependencies:
+#    - { role: mbasanta.pip, pip_install_method: "installer", pip_install_url: "https://bootstrap.pypa.io/get-pip.py" }

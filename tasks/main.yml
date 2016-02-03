@@ -1,0 +1,16 @@
+---
+- include: apt-repo.yml
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+# ToDo: remove distribution docker packages if installed
+# https://docs.docker.com/engine/installation/debian/
+# remove lxc-docker* docker.io*
+
+- include: apt-install.yml
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Adding user to group docker
+  user: name={{item}} groups=docker append=yes
+  with_items: "{{docker_users}}"
+  notify:
+    - restart docker

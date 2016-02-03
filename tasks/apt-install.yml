@@ -1,0 +1,21 @@
+---
+- name: Install docker
+  apt: name='{{item}}' state=installed update_cache=yes
+  with_items:
+    - docker-engine
+  notify:
+    - restart docker
+
+# If kernel >= 4.0 remove /var/lib/docker/aufs
+# If you initially had kernel 3.6 and upgraded to 4.0, you could have aufs enabled on docker
+# and on kernel >= 4 you probably get an error of aufsf not available
+
+- name: If kernel greater than 4 delete aufs
+  file: path=/var/lib/docker/aufs state=absent
+  when: ansible_kernel[0] | int >= 4
+
+- name: Install docker-py
+  pip: name='{{item}}'
+  with_items:
+    - docker-py
+

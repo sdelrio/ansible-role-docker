@@ -1,0 +1,3 @@
+---
+# Users to add to docker group, default empty
+docker_users:
