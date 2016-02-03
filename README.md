@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sdelrio/ansible-role-docker.svg)](https://travis-ci.org/sdelrio/ansible-role-docker)
+
 Docker
 ======
 
